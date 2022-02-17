@@ -1,0 +1,10 @@
+
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(ˆ‡ûğøÿÿÿÿ
+M	java:S106E"9Replace this use of System.out or System.err by a logger.(ùø¼
+N	java:S106K"9Replace this use of System.out or System.err by a logger.(™·úÏ
+j
+java:S11924"HDefine a constant instead of duplicating this literal "message" 5 times.(ÖÎÃôşÿÿÿÿ8®„äï/
+d
+java:S1192$"IDefine a constant instead of duplicating this literal "adminDto" 5 times.(ÅÉÒ‰øÿÿÿÿ
+d
+java:S1192%"IDefine a constant instead of duplicating this literal "register" 5 times.(ã‹¥œúÿÿÿÿ
