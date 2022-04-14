@@ -1,8 +1,16 @@
 
-N	java:S1068"9Replace this use of System.out or System.err by a logger.(ÏÅ¬
+M
+java:S3740‰"/Provide the parametrized type for this generic.(´Ù¯Ô8„°ˆº‚0
+L
+java:S3740‘"/Provide the parametrized type for this generic.(—ñƒ|8…°ˆº‚0
+R
+java:S3740’"/Provide the parametrized type for this generic.(¹µëÆşÿÿÿÿ8…°ˆº‚0
+N	java:S106+"9Replace this use of System.out or System.err by a logger.(ÏÅ¬
 B
-java:S1125R"'Remove the unnecessary boolean literal.(²ÊšÕúÿÿÿÿ
-{
-java:S1488‰"dImmediately return this expression instead of assigning it to the temporary variable "productPages".(ÇõØè
-w
-java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "products".(‘’¥
+java:S1125E"'Remove the unnecessary boolean literal.(²ÊšÕúÿÿÿÿ
+|
+java:S1488"fImmediately return this expression instead of assigning it to the temporary variable "productDtoList".(…â‡“
+z
+java:S1488}"dImmediately return this expression instead of assigning it to the temporary variable "productPages".(¾Ìéÿ
+ƒ
+java:S1488…"`Immediately return this expression instead of assigning it to the temporary variable "products".(íÁå¹øÿÿÿÿ8ÁÊ‡º‚0
