@@ -1,0 +1,9 @@
+
+^
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ú­Ç†
+b
+java:S1192""LDefine a constant instead of duplicating this literal "customerDto" 4 times.(Š’Œç
+c
+java:S11924"FDefine a constant instead of duplicating this literal "error" 3 times.(ÝÛ¼•8Áö±ð‚0
+k
+java:S1192#"IDefine a constant instead of duplicating this literal "register" 5 times.(ã‹¥œúÿÿÿÿ8’¼Žñ‚0

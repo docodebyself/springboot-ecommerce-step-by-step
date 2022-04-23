@@ -1,0 +1,5 @@
+
+„
+java:S1488G"bImmediately return this expression instead of assigning it to the temporary variable "categories".(éŠÛúÿÿÿÿ8¼Ñ‚§0
+¦
+java:S4449"ŠAnnotate the parameter with @javax.annotation.Nullable in method 'save' declaration, or make sure that null can not be passed as argument.(˜±İ¡ùÿÿÿÿ

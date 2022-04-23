@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
 
-<head th:replace="fragments :: header">
+<head th:replace = "fragments :: header">
 </head>
+
 <body id="page-top">
+
 <!-- Page Wrapper -->
 <div id="wrapper">
+
     <!-- Sidebar -->
-    <ul th:replace="fragments :: sidebar">
+    <ul th:replace = "fragments :: sidebar">
     </ul>
     <!-- End of Sidebar -->
 
@@ -18,17 +21,17 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav th:replace="fragments :: topbar"></nav>
+            <nav th:replace = "fragments :: top-navbar">
+            </nav>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <!-- Page Heading -->
-                <form class="form-horizontal" th:action="@{/update-product/{id} (id = ${productDto.id})}" method="post" enctype="multipart/form-data" th:object = "${productDto}">
+                <form class="form-horizontal" th:action="@{/update-product/{id}(id = ${productDto.id})}" method="post" th:object = "${productDto}"
+                      enctype="multipart/form-data">
                     <fieldset>
                         <!-- Form Name -->
-                        <legend>ADD PRODUCTS</legend>
-
+                        <legend>UPDATE PRODUCT</legend>
                         <!-- Text input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
@@ -38,10 +41,10 @@
                         </div>
 
                         <!-- Select Basic -->
-                        <div class="form-group" >
-                            <label class="col-md-4 control-label" for="categories">PRODUCT CATEGORY</label>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="product_categories">PRODUCT CATEGORY</label>
                             <div class="col-md-4">
-                                <select id="categories" th:field = "*{category}" name="categories" class="form-control">
+                                <select id="product_categories" th:field = "*{category}" name="product_categories" class="form-control">
                                     <option th:value = "null">-SELECT-</option>
                                     <option th:each = "category : ${categories}"
                                             th:value = "${category.id}"
@@ -53,10 +56,9 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION </label>
+                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
                             <div class="col-md-4">
                                 <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
-
                             </div>
                         </div>
 
@@ -75,32 +77,23 @@
                                 <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
                             </div>
                         </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="sale">Sale Price</label>
-                            <div class="col-md-4">
-                                <input id="sale" name="sale" th:field = "*{salePrice}" class="form-control input-md" required="" type="text">
-                            </div>
-                        </div>
-
                         <!-- Text input-->
                         <div class="form-group">
                             <div class="col-md-4">
                                 <!-- File Button -->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="imageProduct">Image Product</label>
-                                    <img style="height: 40px; width: 40px;" th:src = "*{'data:image/jpeg;base64,' + {image}}">
+                                    <label class="col-md-4 control-label" for="image">PRODUCT IMAGE</label>
                                     <div class="col-md-4">
-                                        <input id="imageProduct" name="imageProduct" class="input-file" type="file">
+                                        <img class = "my-product-image" style="height: 40px; width: 40px;" alt="" th:src="*{'data:image/jpeg;base64,' + {image}}">
+                                        <input id="image" name="imageProduct" class="input-file" type="file">
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </fieldset>
-                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
-            <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
 
@@ -119,11 +112,10 @@
 <a th:replace="fragments :: scroll">
 </a>
 
-<!-- Logout Modal-->
+
 
 <!-- Bootstrap core JavaScript-->
 <div th:replace="fragments :: script"></div>
-<script th:src="@{/js/categories.js}"></script>
 
 </body>
 

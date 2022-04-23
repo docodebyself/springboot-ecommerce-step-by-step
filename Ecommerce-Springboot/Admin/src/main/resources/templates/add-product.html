@@ -1,119 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
 
-<head th:replace="fragments :: header">
+<head th:replace = "fragments :: header">
 </head>
+
 <body id="page-top">
-<!-- Page Wrapper -->
-<div id="wrapper">
-    <!-- Sidebar -->
-    <ul th:replace="fragments :: sidebar">
-    </ul>
-    <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-        <!-- Main Content -->
-        <div id="content">
+        <!-- Sidebar -->
+        <ul th:replace = "fragments :: sidebar">
+        </ul>
+        <!-- End of Sidebar -->
 
-            <!-- Topbar -->
-            <nav th:replace="fragments :: topbar"></nav>
-            <!-- End of Topbar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <form class="form-horizontal" th:action="@{/save-product}" method="post" enctype="multipart/form-data" th:object = "${product}">
-                    <fieldset>
-                        <!-- Form Name -->
-                        <legend>ADD PRODUCTS</legend>
+            <!-- Main Content -->
+            <div id="content">
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
-                            <div class="col-md-4">
-                                <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md" required="" type="text">
+                <!-- Topbar -->
+                <nav th:replace = "fragments :: top-navbar">
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <form class="form-horizontal" th:action="@{/save-product}" method="post" th:object = "${productDto}"
+                        enctype="multipart/form-data">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend>ADD NEW PRODUCT</legend>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+                                <div class="col-md-4">
+                                    <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md" required="" type="text">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Select Basic -->
-                        <div class="form-group" >
-                            <label class="col-md-4 control-label" for="categories">PRODUCT CATEGORY</label>
-                            <div class="col-md-4">
-                                <select id="categories" th:field = "*{category}" name="categories" class="form-control">
-                                    <option th:value = "null">-SELECT-</option>
-                                    <option th:each = "category : ${categories}"
-                                            th:value = "${category.id}"
-                                            th:text = "${category.name}">
-                                    </option>
-                                </select>
+                            <!-- Select Basic -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="product_categories">PRODUCT CATEGORY</label>
+                                <div class="col-md-4">
+                                    <select id="product_categories" th:field = "*{category}" name="product_categories" class="form-control">
+                                        <option th:value = "null">-SELECT-</option>
+                                        <option th:each = "category : ${categories}"
+                                                th:value = "${category.id}"
+                                                th:text = "${category.name}">
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION </label>
-                            <div class="col-md-4">
-                                <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
-
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+                                <div class="col-md-4">
+                                    <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
-                            <div class="col-md-4">
-                                <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md" required="" type="text">
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
+                                <div class="col-md-4">
+                                    <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md" required="" type="text">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="price">PRICE</label>
-                            <div class="col-md-4">
-                                <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="price">PRICE</label>
+                                <div class="col-md-4">
+                                    <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
+                                </div>
                             </div>
-                        </div>
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <div class="col-md-4">
-                                <!-- File Button -->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="imageProduct">Image Product</label>
-                                    <div class="col-md-4">
-                                        <input id="imageProduct" name="imageProduct" class="input-file" type="file">
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <!-- File Button -->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="image">PRODUCT IMAGE</label>
+                                        <div class="col-md-4">
+                                            <input id="image" name="imageProduct" class="input-file" type="file">
+                                        </div>
                                     </div>
                                 </div>
-                    </fieldset>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer th:replace="fragments :: footer">
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer th:replace="fragments :: footer">
-        </footer>
-        <!-- End of Footer -->
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a th:replace="fragments :: scroll">
+    </a>
 
-<!-- Scroll to Top Button-->
-<a th:replace="fragments :: scroll">
-</a>
 
-<!-- Logout Modal-->
 
-<!-- Bootstrap core JavaScript-->
-<div th:replace="fragments :: script"></div>
-<script th:src="@{/js/categories.js}"></script>
+    <!-- Bootstrap core JavaScript-->
+    <div th:replace="fragments :: script"></div>
 
 </body>
 

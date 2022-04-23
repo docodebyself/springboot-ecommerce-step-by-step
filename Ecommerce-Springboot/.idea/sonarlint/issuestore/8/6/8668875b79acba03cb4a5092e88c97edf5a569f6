@@ -1,0 +1,6 @@
+
+m	java:S116"XRename this field "UPLOAD_FOLDER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù”  
+7
+java:S1170"!Make this final field static too.(Ù”  
+<
+java:S1075"&Remove this hard-coded path-delimiter.(¯Ûúð

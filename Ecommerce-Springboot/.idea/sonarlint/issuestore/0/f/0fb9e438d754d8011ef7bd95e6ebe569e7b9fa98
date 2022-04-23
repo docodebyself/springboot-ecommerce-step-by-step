@@ -1,0 +1,11 @@
+
+]	java:S125&"<This block of commented-out lines of code should be removed.(ˆóÈÿøÿÿÿÿ8§ºÀ„0
+X	java:S1258"<This block of commented-out lines of code should be removed.(Ù¹™‹8©ºÀ„0
+f
+java:S4488E"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°œ¿`8«ºÀ„0
+g
+java:S4488W"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(©É²¶8­ºÀ„0
+o
+java:S1192#"MDefine a constant instead of duplicating this literal "shoppingCart" 4 times.(ÀÊ¿İûÿÿÿÿ8Ëß¿„0
+f
+java:S1192"PDefine a constant instead of duplicating this literal "redirect:/login" 4 times.(ØÆŠú
