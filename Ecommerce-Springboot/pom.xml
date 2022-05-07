@@ -5,17 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Food-Ordering-Se2</artifactId>
+    <artifactId>Ecommerce-Springboot</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>Library</module>
+        <module>Admin</module>
+        <module>Customer</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
-    <modules>
-        <module>Admin</module>
-        <module>Library</module>
-        <module>Customer</module>
-    </modules>
 </project>

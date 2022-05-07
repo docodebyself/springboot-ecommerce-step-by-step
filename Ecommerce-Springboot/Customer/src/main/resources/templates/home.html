@@ -4,15 +4,16 @@
 
 <head th:replace="fragments::head">
 
-
 </head>
 
 <body>
-<div th:replace="fragments::main-top"></div>
+<div th:replace="fragments::main-top">
+</div>
 <!-- End Main Top -->
 
 <!-- Start Main Top -->
-<header th:replace="fragments::main-header"></header>
+<header th:replace="fragments::main-header">
+</header>
 <!-- End Main Top -->
 
 <!-- Start Top Search -->
@@ -21,47 +22,7 @@
 <!-- End Top Search -->
 
 <!-- Start Slider -->
-<div id="slides-shop" class="cover-slides">
-    <ul class="slides-container">
-        <li class="text-center">
-            <img src="images/Fish 01 - Fish Tacos.jpg" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Ocean Prime Seafoods</strong></h1>
-                        <p class="m-b-40">Enjoy your meal! <br> Have you a good, fun working day and delicious meal!</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="text-center">
-            <img src="images/Crab 02 - Crab Toast.jpg" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Ocean Prime Seafoods</strong></h1>
-                        <p class="m-b-40">Enjoy your meal! <br> Have you a good, fun working day and delicious meal!</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="text-center">
-            <img src="images/Shrimp 01 - Shrimp Monterey.jpg" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <h1 class="m-b-20"><strong>Welcome To <br> Ocean Prime Seafoods</strong></h1>
-                        <p class="m-b-40">Enjoy your meal! <br> Have you a good, fun working day and delicious meal!</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <div class="slides-navigation">
-        <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-        <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-    </div>
+<div th:replace="fragments::slider">
 </div>
 <!-- End Slider -->
 
@@ -119,7 +80,6 @@
     </div>
 </div>
 
-
 <!-- Start Feed  -->
 <div th:replace="fragments::instagram-box">
 </div>
@@ -129,7 +89,6 @@
 
 <!-- Start Footer  -->
 <footer th:replace="fragments::footer">
-
 </footer>
 
 

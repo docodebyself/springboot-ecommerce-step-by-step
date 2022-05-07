@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title th:text = "${title}">Menu</title>
+    <title>Menu</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
-    <link rel="apple-touch-icon" th:href="@{/images/apple-touch-icon.png}">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
@@ -35,16 +35,16 @@
                 <div class="our-link">
                     <ul>
                         <li><a href="#"> Call US : +84967631186</a></li>
-                        <li><a href="#"><i class="fas fa-location-arrow"></i> Address: Km9, Nguyen Trai, Thanh Xuan,
-                            Ha Noi</a></li>
+                        <li><a href="#"><i class="fas fa-location-arrow"></i> Address: Km9, Nguyen Trai, Thanh Xuan, Ha
+                            Noi</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                        <option><a th:href="@{/login}">Sign In </a></option>
-                        <option><a th:href="@{/register}">Sign Up </a></option>
+                        <option><a href="signup.html">Sign In </a></option>
+                        <option><a href="signup.html">Sign Up </a></option>
                     </select>
                 </div>
                 <div class="text-slid-box">
@@ -94,40 +94,39 @@
                         aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" th:href="@{/}"><img th:src="@{/images/logo.png}" class="logo" width="130"
-                                                              height="80" alt=""></a>
+                <!--<a class="navbar-brand" href="index.html"><img src="images/logo1.png" class="logo" width="180" height="150" alt=""></a> -->
             </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link"  th:href="@{/menu}">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link"th:href="@{/}">Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" th:href="@{/home}">Menu</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Shop</a>
                         <ul class="dropdown-menu">
-                            <li><a th:href = "@{/shop-detail}">Shop Detail</a></li>
+                            <li><a th:href="@{/products}">Shop Detail</a></li>
                             <li><a href="product-detail.html">Product Detail</a></li>
                             <li><a href="cart.html">Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
                             <li><a href="my-account.html">My Account</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item active"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
 
             <!-- Start Atribute Navigation -->
-            <div class="attr-nav2">
+            <div class="attr-nav">
                 <ul>
                     <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     <li class="side-menu">
-                        <a href="#"  th:href = "@{/cart}">
+                        <a href="#">
                             <i class="fa fa-shopping-bag"></i>
-                            <span class="badge" th:text = "${session.totalItems == null} ? '0' : ${session.totalItems}"></span>
+                            <span class="badge">3</span>
                             <p>My Cart</p>
                         </a>
                     </li>
@@ -135,11 +134,66 @@
             </div>
             <!-- End Atribute Navigation -->
         </div>
+        <!-- Start Side Menu -->
+        <div class="side">
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <li class="cart-box">
+                <ul class="cart-list">
+                    <li>
+                        <a href="#" class="photo"><img th:src="@{/images/Lobster 02 - Lobster rolls.jpg}" class="cart-thumb"
+                                                       alt=""/></a>
+                        <h6><a href="#">Lobster rolls </a></h6>
+                        <p>1 - <span class="price">$80.00</span></p>
+                    </li>
+                    <li>
+                        <a href="#" class="photo"><img th:src="@{/images/Octopus 05 - Octopus with Black Bean Pear Sauce.jpg}"
+                                                       class="cart-thumb" alt=""/></a>
+                        <h6><a href="#">Octopus with Black Bean</a></h6>
+                        <p>1 - <span class="price">$60.00</span></p>
+                    </li>
+                    <li>
+                        <a href="#" class="photo"><img th:src="@{/images/Crab 02 - Crab Toast.jpg}" class="cart-thumb" alt=""/></a>
+                        <h6><a href="#">Crab Toast</a></h6>
+                        <p>1 - <span class="price">$40.00</span></p>
+                    </li>
+                    <li class="total">
+                        <a href="cart.html" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                        <span class="float-right"><strong>Total</strong>: $180.00</span>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <!-- End Side Menu -->
     </nav>
     <!-- End Navigation -->
 </header>
-<!-- End Main Top -->
-
+<!--Navigation Product page-->
+<div class="product-item-filter row" th:fragment="nav-product">
+    <div class="col-12 col-sm-8 text-center text-sm-left">
+        <div class="toolbar-sorter-right">
+            <span>Sort by </span>
+            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+                <option data-display="Select">Nothing</option>
+                <option value="2">High Price → High Price</option>
+                <option value="3">Low Price → High Price</option>
+                <option value="4">Best Selling</option>
+            </select>
+        </div>
+        <p>Showing all results</p>
+    </div>
+    <div class="col-12 col-sm-4 text-center text-sm-right">
+        <ul class="nav nav-tabs ml-auto">
+            <li>
+                <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i
+                        class="fa fa-th"></i> </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#list-view" data-toggle="tab"> <i
+                        class="fa fa-list-ul"></i> </a>
+            </li>
+        </ul>
+    </div>
+</div>
 <!-- Start Top Search -->
 <div class="top-search" th:fragment="top-search">
     <div class="container">
@@ -153,14 +207,14 @@
 <!-- End Top Search -->
 
 <!-- Start Slider -->
-<div class="all-title-box" th:fragment="all-title-box">
+<div class="all-title-box" th:fragment="slider">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2 th:text = "${page}"></h2>
+                <h2>Menu</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home.html">Ocean Prime</a></li>
-                    <li class="breadcrumb-item active" th:text="${page}"></li>
+                    <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                    <li class="breadcrumb-item active"> Menu</li>
                 </ul>
             </div>
         </div>
@@ -173,49 +227,46 @@
     <div class="main-instagram owl-carousel owl-theme">
         <div class="item">
             <div class="ins-inner-box">
-                <a href="index.html"><img th:src="@{/images/Fish 01 - Fish Tacos.jpg}" alt="" /></a>
+                <a href="index.html"><img th:src="@{/images/Fish 01 - Fish Tacos.jpg}" alt=""/></a>
 
             </div>
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img th:src="@{/images/instagram-img-02.jpg}" alt="" />
+                <img th:src="@{/images/instagram-img-02.jpg}" alt=""/>
             </div>
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <a href="index.html"><img th:src="@{/images/Fish 04 - Red Pepper & Parmesan Tilapia.jpg}" alt="" /></a>
+                <a href="index.html"><img th:src="@{/images/Fish 04 - Red Pepper & Parmesan Tilapia.jpg}" alt=""/></a>
             </div>
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <a href="index.html"><img th:src="@{/images/Fish 05 - Almond-Topped Fish.jpg}" alt="" /></a>
+                <a href="index.html"><img th:src="@{/images/Fish 05 - Almond-Topped Fish.jpg}" alt=""/></a>
             </div>
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <a href="index.html"><img th:src="@{/images/Shrimp 03 - Shrimp Tostadas with Avocado Salsa.jpg}"
-                                          alt="" /></a>
+                <a href="index.html"><img th:src="@{/images/Shrimp 03 - Shrimp Tostadas with Avocado Salsa.jpg}" alt=""/></a>
             </div>
         </div>
         <div class="item">
             <div class="ins-inner-box">
                 <a href="index.html"><img th:src="@{/images/Shrimp 08 - Grilled Shrimp and Chorizo Appetizers.jpg}"
-                                          alt="" /></a>
+                                          alt=""/></a>
             </div>
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <a href="index.html"><img
-                        th:src="@{/images/Octopus 06 - Red Wine–Braised Baby Octopus with Black Olives.jpg}" alt="" /></a>
+                <a href="index.html"><img th:src="@{/images/Octopus 06 - Red Wine–Braised Baby Octopus with Black Olives.jpg}"
+                                          alt=""/></a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- End Feed  -->
-
-
 
 
 <!-- Start Footer  -->
@@ -260,23 +311,24 @@
         </div>
     </div>
 </footer>
+
+<!-- ALL JS FILES -->
 <div th:fragment="script">
-            <!-- ALL JS FILES -->
-            <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
-            <script th:src="@{/js/popper.min.js}"></script>
-            <script th:src="@{/js/bootstrap.min.js}"></script>
-            <!-- ALL PLUGINS -->
-            <script th:src="@{/js/jquery.superslides.min.js}"></script>
-            <script th:src="@{/js/bootstrap-select.js}"></script>
-            <script th:src="@{/js/inewsticker.js}"></script>
-            <script th:src="@{/js/bootsnav.js}"></script>
-            <script th:src="@{/js/images-loded.min.js}"></script>
-            <script th:src="@{/js/isotope.min.js}"></script>
-            <script th:src="@{/js/owl.carousel.min.js}"></script>
-            <script th:src="@{/js/baguetteBox.min.js}"></script>
-            <script th:src="@{/js/form-validator.min.js}"></script>
-            <script th:src="@{/js/contact-form-script.js}"></script>
-            <script th:src="@{/js/custom.js}"></script>
+    <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- ALL PLUGINS -->
+    <script th:src="@{/js/jquery.superslides.min.js}"></script>
+    <script th:src="@{/js/bootstrap-select.js}"></script>
+    <script th:src="@{/js/inewsticker.js}"></script>
+    <script th:src="@{/js/bootsnav.js.}"></script>
+    <script th:src="@{/js/images-loded.min.js}"></script>
+    <script th:src="@{/js/isotope.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/baguetteBox.min.js}"></script>
+    <script th:src="@{/js/form-validator.min.js}"></script>
+    <script th:src="@{/js/contact-form-script.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
 </div>
 </body>
 </html>

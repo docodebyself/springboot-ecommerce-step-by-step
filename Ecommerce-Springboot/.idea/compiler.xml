@@ -7,7 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Food-Ordering-Se2" />
+        <module name="Ecommerce-Springboot" />
         <module name="Library" />
         <module name="Admin" />
         <module name="Customer" />

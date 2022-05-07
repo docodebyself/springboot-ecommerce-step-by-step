@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments :: header">
+</head>
+<body id="page-top">
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul th:replace="fragments :: sidebar">
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="fragments :: topbar"></nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div th:if = "${size == 0}">
+                    <p>No products in shop</p>
+                </div>
+                <div th:if = "${success}" class="text-center alert alert-success">
+                    <p th:text = "${success}"></p>
+                </div>
+                <div th:if = "${error}" class="text-center alert alert-danger">
+                    <p th:text = "${error}"></p>
+                </div>
+                <a class="btn btn-primary" th:href = "@{/add-product}">Add new product</a>
+                <table class="table table-striped" th:if = "${size > 0}">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each = "product : ${products}">
+                        <th scope="row" th:text = "${product.name}"></th>
+                        <td th:text = "${product.category.name}"></td>
+                        <td th:text = "${product.costPrice}"></td>
+                        <td th:text = "${product.currentQuantity}"></td>
+                        <td><img src="" style="height: 40px; width: 40px;" th:src = "*{'data:image/jpeg;base64,' + {product.image}}"></td>
+                        <td><a th:href="@{/update-product/{id} (id = ${product.id})}" class="btn btn-primary">Update</a></td>
+                        <td>
+                            <a th:if = "${product.activated == false}" th:href="@{/enable-product/{id} (id = ${product.id})}" class="btn btn-warning">Enable</a>
+                            <a th:if = "${product.deleted == false}" th:href = "@{/delete-product/{id} (id = ${product.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li th:if = "${currentPage != 0}" class="page-item">
+                            <a th:href="@{'/products/' + ${currentPage - 1}}" class="page-link" href="#">Previous</a>
+                        </li>
+                        <li th:each = "i : ${#numbers.sequence(1, totalPages)}" th:classappend="${currentPage == i - 1 ? 'active' : ''}" class="page-item">
+                            <a th:href="@{'/products/' + ${i - 1}}" class="page-link" href="#"><span th:text = "${i}"></span></a>
+                        </li>
+                        <li th:if = "${currentPage + 1 != totalPages}" class="page-item">
+                            <a th:href="@{'/products/' + ${currentPage + 1}}" class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer th:replace="fragments :: footer">
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a th:replace="fragments :: scroll">
+</a>
+
+<!-- Logout Modal-->
+
+<!-- Bootstrap core JavaScript-->
+<div th:replace="fragments :: script"></div>
+<script th:src="@{/js/categories.js}"></script>
+
+</body>
+
+</html>
