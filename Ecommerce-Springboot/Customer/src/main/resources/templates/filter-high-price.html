@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="fragments::head">
+
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="fragments::main-top">
+</div>
+<!-- End Main Top -->
+
+
+<!-- Start Main Top -->
+<header th:replace="fragments::main-header">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="fragments::top-search">
+</div>
+<!-- End Top Search -->
+
+
+<!-- Start All Title Box -->
+<div th:replace="fragments::slider">
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Shop Page  -->
+<div class="shop-box-inner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
+        <div class="right-product-box">
+          <div th:replace="fragments::nav-product">
+          </div>
+          <!--all product-->
+          <div class="container" th:each = "category : ${categories}">
+            <div class="row" >
+              <div class="col-lg-12">
+                <div class="title-all text-center">
+                  <h1 th:text="${category.name}"></h1>
+                  <p>Have you a really good meal!</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="special-menu text-center">
+                  <div class="button-group filter-button-group">
+                    <button class="active" data-filter="*">All</button>
+                    <button data-filter=".best-seller">Best seller</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row special-list">
+              <!--<div class="col-lg-3 col-md-6 special-grid best-seller" >
+                  <div class="products-single fix">
+                      <div class="box-img-hover">
+                          <img src="" alt="Image">
+                          <div class="mask-icon">
+                              <ul>
+                                  <li><a href="product-detail.html" data-toggle="tooltip" data-placement="right"
+                                         title="View"><i class="fas fa-eye"></i></a></li>
+                              </ul>
+                              <a class="cart" href="#">Add to Cart</a>
+                          </div>
+                      </div>
+                      <div class="why-text">
+                          <h4 ></h4>
+                          <h5 > </h5>
+                      </div>
+                  </div>
+              </div>-->
+              <div class="col-lg-3 col-md-6 special-grid" th:each="product : ${products}" th:if = "${product.category.id == category.id}">
+                <div class="products-single fix">
+                  <div class="box-img-hover">
+                    <img th:src="@{'data:image/jpeg;base64,' + ${product.image}}" class="img-fluid" alt="Image">
+                    <div class="mask-icon">
+                      <ul>
+                        <li><a th:href="@{/find-product/{id}(id = ${product.id})}" data-toggle="tooltip" data-placement="right"
+                               title="View"><i class="fas fa-eye"></i></a></li>
+                      </ul>
+                      <a class="cart" href="#">Add to Cart</a>
+                    </div>
+                  </div>
+                  <div class="why-text">
+                    <h4 th:text="${product.name}">Almond-Topped Fish</h4>
+                    <h5 th:text="'$' + ${product.costPrice}"> $36.00</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
+        <div class="product-categori">
+          <div class="search-product">
+            <form action="#">
+              <input class="form-control" placeholder="Search here..." type="text">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <div class="filter-sidebar-left">
+            <div class="title-left">
+              <h3>Categories</h3>
+            </div>
+            <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men"
+                 data-children=".sub-men" th:each="categoryDto : ${categoryDtoList}">
+              <a th:href="@{/products-in-category/{id}(id = ${categoryDto.categoryId})}" class="list-group-item list-group-item-action">[[${categoryDto.categoryName}]] <small class="text-muted">([[${categoryDto.numberOfProduct}]])</small></a>
+            </div>
+          </div>
+          <div class="filter-price-left">
+            <div class="title-left">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Shop Page -->
+
+<!-- Start Feed  -->
+<div th:replace="fragments::instagram-box">
+</div>
+
+<!-- End Feed  -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="fragments::footer">
+</footer>
+
+<!-- ALL JS FILES -->
+<div th:replace="fragments::script"></div>
+</body>
+
+</html>

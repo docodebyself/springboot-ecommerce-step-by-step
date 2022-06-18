@@ -1,0 +1,9 @@
+
+R
+java:S4973z"<Strings and Boxed types should be compared using "equals()".(ù½Ş°
+X
+java:S2259O"BA "NullPointerException" could be thrown; "item" is nullable here.(ï…ÍŞ
+£
+java:S4449g"ŒAnnotate the parameter with @javax.annotation.Nullable in method 'delete' declaration, or make sure that null can not be passed as argument.(¶™«–
+R
+java:S2589#"7Remove this expression which always evaluates to "true"(ˆóÿâùÿÿÿÿ

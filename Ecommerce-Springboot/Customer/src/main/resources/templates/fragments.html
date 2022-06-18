@@ -42,9 +42,11 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
-                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                        <option><a href="signup.html">Sign In </a></option>
-                        <option><a href="signup.html">Sign Up </a></option>
+                    <select id="" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
+                        <option th:text="${session.username != null} ? ${session.username} : 'Authentication'"></option>
+                        <option th:if = "${session.username == null}" value="http://localhost:8020/shop/login">Sign In</option>
+                        <option th:if = "${session.username != null}" value="http://localhost:8020/shop/logout">Log out</option>
+                        <option value="http://localhost:8020/shop/register" >Sign Up</option>
                     </select>
                 </div>
                 <div class="text-slid-box">
@@ -124,7 +126,7 @@
                 <ul>
                     <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     <li class="side-menu">
-                        <a href="#">
+                        <a th:href="@{/cart}">
                             <i class="fa fa-shopping-bag"></i>
                             <span class="badge">3</span>
                             <p>My Cart</p>
@@ -172,11 +174,11 @@
     <div class="col-12 col-sm-8 text-center text-sm-left">
         <div class="toolbar-sorter-right">
             <span>Sort by </span>
-            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD" onchange="location = this.value;">
                 <option data-display="Select">Nothing</option>
-                <option value="2">High Price → High Price</option>
-                <option value="3">Low Price → High Price</option>
-                <option value="4">Best Selling</option>
+                <option value="http://localhost:8020/shop/high-price">High Price → Low Price</option>
+                <option value="http://localhost:8020/shop/low-price">Low Price → High Price</option>
+                <option data-display="Select">Best Selling</option>
             </select>
         </div>
         <p>Showing all results</p>
