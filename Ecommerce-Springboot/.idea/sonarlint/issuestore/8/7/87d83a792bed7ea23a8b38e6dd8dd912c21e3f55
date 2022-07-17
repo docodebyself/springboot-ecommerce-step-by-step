@@ -1,0 +1,9 @@
+
+[
+java:S4684%"@Replace this persistent entity with a simple POJO or DTO object.(›®Ïªùÿÿÿÿ
+X
+java:S1128"=Remove this unused import 'com.ecommerce.library.model.City'.(ª­ˆúÿÿÿÿ
+\
+java:S1128"FRemove this unused import 'com.ecommerce.library.service.CityService'.(·Ù§Ğ
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ

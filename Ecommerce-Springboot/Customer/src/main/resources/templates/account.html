@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="fragments::head">
+</head>
+
+<body>
+    <!-- Start Main Top -->
+    <div th:replace="fragments::main-top">
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <header th:replace="fragments::main-header">
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div th:replace="fragments::top-search">
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div th:replace="fragments::instagram-box">
+    </div>
+    <!-- End All Title Box -->
+    <div class="mainDiv">
+        <div class="cardStyle">
+            <div class="text alert alert-warning" th:if = "${error}">
+                <p th:text="${error}"></p>
+            </div>
+
+            <form th:action="@{/update-infor}" method="put" name="signupForm" id="signupForm" th:object="${customer}">
+            
+            <img src="" id="signupLogo"/>
+            
+            <h2 class="formTitle">
+              <i>Personal Information</i> 
+            </h2>
+
+          <div class="inputDiv">
+            <label class="inputLabel" for="firstname"> First name * </label>
+            <input type="text" th:field = "*{firstName}"  id="firstname" name="firstname" readonly>
+          </div>
+            
+          <div class="inputDiv">
+            <label class="inputLabel" for="lastname">Last name *</label>
+            <input type="text" id="lastname" th:field = "*{lastName}" name="lastname" readonly>
+          </div>
+            
+          <div class="inputDiv">
+            <label class="inputLabel" for="username">User name *</label>
+            <input type="text" id="username" th:field = "*{username}" name="username" readonly>
+          </div>
+
+          <div class="inputDiv">
+            <label class="inputLabel" for="phoneNumber">Phone number *</label>
+            <input type="number" id="phoneNumber" th:field = "*{phoneNumber}" name="phoneNumber">
+          </div>
+
+          <div class="inputDiv">
+            <label class="inputLabel" for="address">Address *</label>
+            <input type="text" id="address" th:field = "*{address}" name="address">
+          </div>
+
+          <div class="inputDiv">
+            <label class="inputLabel" for="city">City *</label>
+            <input type="text" id="city" th:field = "*{city}" name="city">
+          </div>
+
+          <div class="inputDiv">
+            <label class="inputLabel" for="country">Country *</label>
+            <input type="text" id="country" th:field = "*{country}" name="country">
+          </div>
+          
+          <div class="buttonWrapper">
+            <button type="submit" id="submitButton" class="submitButton pure-button pure-button-primary">
+              <span>Save</span>
+            </button>
+          </div>
+            
+        </form>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <div th:replace="fragments::script">
+    </div>
+</body>
+
+</html>

@@ -5,12 +5,12 @@ E
 java:S3740”"/Provide the parametrized type for this generic.(—ñƒ|
 K
 java:S3740•"/Provide the parametrized type for this generic.(¹µëÆşÿÿÿÿ
-N	java:S106,"9Replace this use of System.out or System.err by a logger.(ÏÅ¬
-B
-java:S1125F"'Remove the unnecessary boolean literal.(²ÊšÕúÿÿÿÿ
 |
 java:S1488 "fImmediately return this expression instead of assigning it to the temporary variable "productDtoList".(…â‡“
 z
 java:S1488~"dImmediately return this expression instead of assigning it to the temporary variable "productPages".(¾Ìéÿ
 |
 java:S1488†"`Immediately return this expression instead of assigning it to the temporary variable "products".(íÁå¹øÿÿÿÿ
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(ÏÅ¬
+B
+java:S1125F"'Remove the unnecessary boolean literal.(²ÊšÕúÿÿÿÿ

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="fragments::head">
+
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="fragments::main-top">
+</div>
+<!-- End Main Top -->
+
+<!-- Start Main Top -->
+<header th:replace="fragments::main-header">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="fragments::top-search">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="fragments::slider">
+</div>
+<!-- End All Title Box -->
+
+<!-- Update Personal Information -->
+<section>
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="order-date">Order Date</th>
+                                <th>Delivery Date</th>
+                                <th class="price-pr">Order Status</th>
+                                <th class="quantity-box">Total Price</th>
+                                <th>Tax</th>
+                                <th class="total-pr">Payment Method</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="order-date">
+                                    <span><b>27-1-2022</b></span>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                                        29-1-2022
+                                    </a>
+                                </td>
+                                <td class="price-pr">
+                                    <p>Completed</p>
+                                </td>
+                                <td class="quantity-box"> 1</td>
+                                <td class="total-pr">
+                                    <p style="color: red">$ 80.0</p>
+                                </td>
+                                <td class="total-pr" style="color: black">
+                                    <span></span>Credit Cart</span>
+                                </td>
+                                <td>
+                                    <button class="button-cancel">Cancel</button>
+                                </td>
+                                </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="order-date">
+                                    <B>27-1-2022</B>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                                        30-1-2022
+                                    </a>
+                                </td>
+                                <td class="price-pr">
+                                    <p>Canceled</p>
+                                </td>
+                                <td class="quantity-box">4</td>
+                                <td class="total-pr">
+                                    <p style="color: red">$ 140.0</p>
+                                </td>
+                                <td class="total-pr">
+                                    <a href="#">
+                                        <span>Cash on Delivery</span>
+                                    <button class="button-cancel">Cancel</button>
+                                </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="order-date">
+                                    <span><b>27-1-2022</b></span>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                                        27-1-2022
+                                    </a>
+                                </td>
+                                <td class="price-pr">
+                                    <p>Completed</p>
+                                </td>
+                                <td class="quantity-box">6</td>
+                                <td class="total-pr">
+                                    <p style="color: red">$ 80.0</p>
+                                </td>
+                                <td class="total-pr">
+                                    <span style="color:black">Credit Cart</span>
+                                <td>
+                                    <button class="button-cancel">Cancel</button>
+                                </td>
+                                </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="order-date">
+                                    <B>27-1-2022</B>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                                        28-1-2022
+                                    </a>
+                                </td>
+                                <td class="price-pr">
+                                    <p>To Ship</p>
+                                </td>
+                                <td class="quantity-box">7</td>
+                                <td class="total-pr">
+                                    <p style="color: red">$ 60.0</p>
+                                </td>
+                                <td class="total-pr">
+                                    <a href="#">
+                                        <span>Cash on Delivery</span>
+
+                                    <button class="button-cancel">Cancel</button>
+                                </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments::footer"></footer>
+
+<!-- ALL JS FILES -->
+<div th:replace="fragments::script"></div>
+</body>
+
+</html>

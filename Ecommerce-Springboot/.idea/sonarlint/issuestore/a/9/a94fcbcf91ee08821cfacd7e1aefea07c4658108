@@ -1,13 +1,13 @@
 
-S
-java:S1854:"8Remove this useless assignment to local variable "cart".(¡§ıÛúÿÿÿÿ
-D
-java:S1481:")Remove this unused "cart" local variable.(¡§ıÛúÿÿÿÿ
-f
-java:S4488@"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°œ¿`8´»›Õ’0
-g
-java:S4488V"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(€ÀèĞ8Ì…Õ’0
 h
-java:S1192'"MDefine a constant instead of duplicating this literal "shoppingCart" 3 times.(¤ Òüÿÿÿÿ
+java:S1192*"MDefine a constant instead of duplicating this literal "shoppingCart" 3 times.(¤ Òüÿÿÿÿ
 f
-java:S1192"PDefine a constant instead of duplicating this literal "redirect:/login" 4 times.(ØÆŠú
+java:S1192 "PDefine a constant instead of duplicating this literal "redirect:/login" 4 times.(ØÆŠú
+g
+java:S2259("JA "NullPointerException" could be thrown; "shoppingCart" is nullable here.(”˜ÁÃ8ãµòú™0
+D
+java:S1481=")Remove this unused "cart" local variable.(¡§ıÛúÿÿÿÿ
+_
+java:S4488C"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°œ¿`
+`
+java:S4488Y"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(€ÀèĞ
