@@ -62,7 +62,8 @@
                             <td th:text = "${product.costPrice}"></td>
                             <td th:text = "${product.currentQuantity}"></td>
                             <td>
-                                <img class = "my-product-image" style="height: 40px; width: 40px;" alt="" th:src="*{'data:image/jpeg;base64,' + '${product.image}'}">
+                                <img class = "my-product-image" style="height: 40px; width: 40px;" alt=""
+                                     th:src="'data:image/jpeg;base64,' + ${product.image}">
                             </td>
                             <td><a th:href="@{/update-product/{id}(id= ${product.id})}" class="btn btn-primary">Update</a></td>
                             <td>

@@ -57,7 +57,7 @@
                 <form th:action="@{/add-to-cart}" method="post">
                     <div class="products-single fix">
                         <div class="box-img-hover">
-                            <img th:src="*{'data:image/jpeg;base64,' + {product.image}}" class="img-fluid" alt="Image">
+                            <img th:src="'data:image/jpeg;base64,' + ${product.image}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
                                     <li><a th:href="@{/product-detail/{id}(id = ${product.id})}" data-toggle="tooltip"

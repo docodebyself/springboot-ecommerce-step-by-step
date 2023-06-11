@@ -39,7 +39,7 @@
                 <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" th:src="*{'data:image/jpeg;base64,' + {productDetail.image}}"
+                            <img class="d-block w-100" th:src="'data:image/jpeg;base64,' + ${productDetail.image}"
                                  alt="First slide"></div>
                     </div>
                 </div>

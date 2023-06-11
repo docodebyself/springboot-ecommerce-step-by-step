@@ -80,7 +80,7 @@
                                         <form th:action="@{/add-to-cart}" method="post">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
-                                                    <img th:src="*{'data:image/jpeg;base64,' + {product.image}}"
+                                                    <img th:src="'data:image/jpeg;base64,' + ${product.image}}"
                                                          class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
@@ -110,7 +110,7 @@
                                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                                 <div class="products-single fix">
                                                     <div class="box-img-hover">
-                                                        <img th:src="*{'data:image/jpeg;base64,' + {productView.image}}"
+                                                        <img th:src="'data:image/jpeg;base64,' + ${productView.image}}"
                                                              class="img-fluid"
                                                              alt="Image">
                                                     </div>
