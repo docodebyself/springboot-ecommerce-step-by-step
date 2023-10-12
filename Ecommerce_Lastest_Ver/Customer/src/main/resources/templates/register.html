@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace = "~{fragments::head}">
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+</head>
+
+<body>
+    <!-- Start Main Top -->
+    <div th:replace = "~{fragments::main-top}"></div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <header th:replace = "~{fragments:: main-top}"></header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div th:replace = "~{fragments::top-search}"></div>
+    <!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div th:replace = "~{fragments:: all-title-box}"></div>
+    <!-- End All Title Box -->
+
+    <section id="register-form">
+        <div class="noi-dung">
+            <div class="form">
+                <h2>Register</h2>
+                <div th:if = "${success}">
+                    <p class = "alert alert-success" th:text = "${success}"></p>
+                </div>
+                <div th:if = "${error}">
+                    <p class = "alert alert-danger" th:text = "${error}"></p>
+                </div>
+                <form th:action = "@{/do-register}" method="POST" th:object = "${customerDto}">
+                    <div class="input-form">
+                        <div class="input-form">
+                            <input type="text" placeholder="First Name" name="firstname" th:field = "*{firstName}" required>
+                        </div>
+                        <div class="alert alert-danger" th:if = "${#fields.hasErrors('firstName')}"
+                             th:errors = "*{firstName}"></div>
+                    </div>
+                    <div class="input-form">
+                        <div class="input-form">
+                        <!-- <span>User name</span> -->
+                        <input type="text" placeholder="Last Name" name="lastname" th:field = "*{lastName}" required>
+                        <div class="alert alert-danger" th:if = "${#fields.hasErrors('lastName')}"
+                             th:errors = "*{lastName}"></div>
+                    </div>
+
+                        <div class="input-form">
+                            <div class="input-form">
+                            <input type="email" placeholder="Username" name="username" th:field = "*{username}" required>
+                        </div>
+                    <div class="input-form">
+                        <input type="password" placeholder="Password" name="password" th:field = "*{password}" required>
+                        <div class="alert alert-danger" th:if = "${#fields.hasErrors('password')}"
+                        th:errors = "*{password}"></div>
+                    </div>
+                    <div class="input-form">
+                        <input type="password" placeholder="Verify password" name="confirm" th:field = "*{confirmPassword}" required>
+                    </div>
+                    <div class="input-form">
+                        <p>Do You Already Have An Account ? <a th:href = "@{/login}"> Sign in now </a></p>
+                    </div>
+                    <div class="input-form">
+                        <input type="submit" value="Sign up">
+                    </div>
+                </form>
+                <h3>Log In With Social Network</h3>
+                <ul class="icon-dang-nhap">
+                    <li><i class="fab fa-facebook-f"></i></i></li>
+                    <li><i class="fab fa-google"></i></li>
+                    <li><i class="fab fa-weibo"></i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace = "~{fragments:: footer}"></footer>
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <div th:replace = "~{fragments::script}"></div>
+</body>
+
+</html>

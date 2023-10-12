@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments::header}"></head>
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!--Sidebar-->
+    <ul th:replace="~{fragments::sidebar}"></ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="~{fragments::top-navbar}"></nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div th:if="${success}" class="text-center alert alert-success">
+                <p th:text="${success}">
+                </p>
+            </div>
+            <div class="table-main table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="order-date">Order Date</th>
+                        <th>Delivery Date</th>
+                        <th class="price-pr">Order Status</th>
+                        <th class="quantity-box">Total Price</th>
+                        <th class="total-pr">Payment Method</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order : ${orders}">
+                        <td class="order-date">
+                            <span><b>[(${order.orderDate})]</b></span>
+                        </td>
+                        <td class="name-pr" th:if="${order.accept == true}">
+                            <a href="#">
+                                [(${order.deliveryDate})]
+                            </a>
+                        </td>
+                        <td class="price-pr">
+                            <p th:text="${order.orderStatus}"></p>
+                        </td>
+                        <td class="quantity-box" th:text="${order.quantity}"></td>
+                        <td class="total-pr">
+                            <p style="color: red">$ [(${order.totalPrice})]</p>
+                        </td>
+                        <td class="total-pr" style="color: black">
+                            <span></span>[(${order.paymentMethod})]</span>
+                        </td>
+                        <td>
+                            <a th:if="${order.accept} != false"  th:href="@{/cancel-order(id = ${order.id})}"
+                               class="btn btn-primary">Cancel</a>
+                            <a th:if="${order.accept} == false" th:href="@{/accept-order(id = ${order.id})}"
+                               class=" btn btn-secondary">Accept</a>
+                        </td>
+                        </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer th:replace="~{fragments::footer}"></footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+    </div>
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a th:replace="~{fragments::scroll}"></a>
+
+<!--Add Categories Modal-->
+
+
+<!--End-->
+
+<!-- End -->
+<!-- Bootstrap core JavaScript-->
+<div th:replace="~{fragments::script}"></div>
+
+<script th:src="@{/js/categories.js}"></script>
+</body>
+
+</html>

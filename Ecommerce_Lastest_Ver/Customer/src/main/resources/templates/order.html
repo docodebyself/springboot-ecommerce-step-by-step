@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="~{fragments::head}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="fragments ::main-top">
+</div>
+<!-- End Main Top -->
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments::all-title-box}">
+</div>
+<!-- End All Title Box -->
+
+<!-- Update Personal Information -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div th:if="${success}" class="text-center alert-success alert">
+                    <p th:text="${success}"></p>
+                </div>
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="order-date">Order Date</th>
+                            <th>Delivery Date</th>
+                            <th class="price-pr">Order Status</th>
+
+                            <th class="quantity-box">Quantity</th>
+                            <th>Total Price</th>
+                            <th class="total-pr">Payment Method</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="order : ${orders}">
+                            <td class="order-date">
+                                <span><b>[(${order.orderDate})]</b></span>
+                            </td>
+                            <td class="name-pr" >
+                                <a th:if = "${order.accept != null}" href="#">
+                                    [(${order.deliveryDate})]
+                                </a>
+                                <a th:if = "${order.accept == null}"><p>Pending</p> </a>
+                            </td>
+                            <td class="price-pr">
+                                <p th:text="${order.orderStatus}"></p>
+                            </td>
+                            <td class="quantity-box" th:text="${order.quantity}"> </td>
+                            <td class="total-pr">
+                                <p style="color: red">$ [(${order.totalPrice})]</p>
+                            </td>
+                            <td class="total-pr" style="color: black">
+                                <span></span>[(${order.paymentMethod})]</span>
+                            </td>
+                            <td>
+                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Cancel</a>
+                            </td>
+                            </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments::footer}"></footer>
+
+<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+<!-- ALL JS FILES -->
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>

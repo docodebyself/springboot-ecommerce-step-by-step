@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="~{fragments::head}">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}">
+</div>
+<!-- End Main Top -->
+
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments:: all-title-box}">
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
+                        You don't have any items in your cart</p>
+                    <table class="table" th:if="${grandTotal}">
+                        <thead>
+                        <tr>
+                            <th>Images</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="cartItem :  ${shoppingCart.cartItems}">
+                            <td class="thumbnail-img">
+                                <a href="#">
+                                    <img class="img-fluid"
+                                         th:src="'data:image/jepg;base64,' + ${cartItem.product.image}" alt=""/>
+                                </a>
+                            </td>
+                            <td class="name-pr">
+                                <p th:text="${cartItem.product.name}"></p>
+                            </td>
+                            <td class="price-pr">
+                                <p th:text="'$' + ${cartItem.unitPrice}"></p>
+                            </td>
+                            <form th:action="@{/update-cart}" method="post">
+                                <input type = "hidden" name = "id" th:value = "${cartItem.product.id}" >
+                                <td class="quantity-box">
+                                    <input type="number" name="quantity" th:value="${cartItem.quantity}" size="4"
+                                           value="1" min="0" step="1"
+                                           class="c-input-text qty text">
+                                </td>
+                                <td class="total-pr">
+                                    <p th:text="'$' + ${cartItem.unitPrice * cartItem.quantity}"></p>
+                                </td>
+                                <td>
+                                    <button type="submit" name="action" value="update" title="Update"
+                                            class="btn btn-primary">
+                                        Update
+                                    </button>
+                                    <button type="submit" name="action" value="delete" title="Update"
+                                            class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5" th:if = "${grandTotal}">
+            <div class="col-lg-8 col-sm-12"></div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="order-box">
+                    <h3>Order summary</h3>
+                    <div class="d-flex">
+                        <h4>Sub Total</h4>
+                        <div class="ml-auto font-weight-bold"> </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex">
+                        <h4>Tax</h4>
+                        <div class="ml-auto font-weight-bold"> $2</div>
+                    </div>
+                    <div class="d-flex">
+                        <h4>Shipping Cost</h4>
+                        <div class="ml-auto font-weight-bold"> Free</div>
+                    </div>
+                    <hr>
+                    <div class="d-flex gr-total">
+                        <h5>Grand Total</h5>
+                        <div class="ml-auto h5" th:text="'$' + ${grandTotal + 2}"></div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-12 d-flex shopping-box"><a href="checkout.html" th:href="@{/check-out}" class="ml-auto btn hvr-hover">Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+
+<!-- Start Feed  -->
+<div th:replace="~{fragments::instagram-box}">
+</div>
+
+<!-- End Feed  -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}"></footer>
+
+
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>

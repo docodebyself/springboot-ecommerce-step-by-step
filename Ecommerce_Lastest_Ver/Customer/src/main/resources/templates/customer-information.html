@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <script src="Change-Password.js"></script>
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}">
+</div>
+<!-- End Main Top -->
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}"></header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments::all-title-box}">
+</div>
+<!-- End All Title Box -->
+<div class="mainDiv">
+    <div class="cardStyle">
+        <h2 class="formTitle">
+            <i>Personal Information</i>
+        </h2>
+        <div th:if="${success}" class="text-center alert alert-success">
+            <p th:text="${success}"></p>
+        </div>
+        <form th:action="@{/update-profile}" method="post" name="signupForm" id="signupForm" th:object="${customer}">
+            <div class="inputDiv">
+                <label class="inputLabel" for="firstname"> First name * </label>
+                <input type="text" id="firstname" th:field="*{firstName}" name="firstname" required>
+            </div>
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+            <div class="inputDiv">
+                <label class="inputLabel" for="lastname">Last name *</label>
+                <input type="text" th:field="*{lastName}"
+                       id="lastname" name="lastname" required>
+            </div>
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" required></div>
+            <div class="inputDiv">
+                <label class="inputLabel" for="username">User name *</label>
+                <input type="text" th:field="*{username}"
+                       id="username" name="username" readonly>
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="phoneNumber">Phone number *</label>
+                <input type="number" th:field="*{phoneNumber}"
+                       th:placeholder="${customer.phoneNumber != null} ? ${customer.phoneNumber} : 'Enter your phone number'"
+                       id="phoneNumber" name="phonenumber" maxlength="15" minlength="10">
+            </div>
+            <div class="alert alert-warning"
+                 th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="address">Address *</label>
+                <input type="text" th:field="*{address}"
+                       th:placeholder="${customer.address != null} ? ${customer.address} : 'Enter your address'"
+                       id="address" name="address">
+            </div>
+            <div class="inputDiv">
+                <label class="inputLabel" for="city">City *</label>
+                <select class="form-control" id="city" th:field="*{city}" name="country" required
+                        th:each="country: ${countries}">
+                    <option value="">-SELECT-</option>
+                    <option th:each="city : ${cities}"
+                            th:value="${city.id}"
+                            th:text="${city.name}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="inputDiv">
+                <label class="inputLabel" for="country">Country *</label>
+                <select class="form-control" id="country" th:field="*{country}" name="country" required>
+                    <option value="">-SELECT-</option>
+                    <option th:each="country : ${countries}"
+                            th:value="${country.id}"
+                            th:text="${country.name}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="buttonWrapper">
+                <button type="submit" id="submitButton" class="submitButton pure-button pure-button-primary">
+                    <span>Save</span>
+                </button>
+            </div>
+            <a th:href="@{/change-password}" style="margin-top: 5px;" class="btn btn-primary text-center buttonWrapper">Change
+                password</a>
+
+        </form>
+    </div>
+</div>
+<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+<!-- Start copyright  -->
+<footer th:replace="~{fragments::footer}"></footer>
+
+
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>

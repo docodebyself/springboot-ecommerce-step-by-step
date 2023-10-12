@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head>
+    <div th:replace="~{fragments::head}"></div>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}"></div>
+<!-- End Main Top -->
+
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}"></header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments:: all-title-box}">
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Shop Detail  -->
+<div class="shop-detail-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-6">
+                <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" th:src="'data:image/jpeg;base64,' + ${productDetail.image}"
+                                 alt="First slide"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6">
+                <form th:action="@{/add-to-cart}" method="post">
+                    <div class="single-product-details">
+                        <h2 th:text="${productDetail.name}"></h2>
+                        <h5 th:text="'$' + ${productDetail.costPrice}"></h5>
+                        <h4>Short Description:</h4>
+                        <p th:text="${productDetail.description}"></p>
+                        <div class="price-box-bar">
+                            <div class="cart-and-bay-btn">
+                                <input type="hidden" th:value="${productDetail.id}" name="id" class="form-control">
+                                <input type="submit" class="btn hvr-hover" value="Add to cart">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-lg-12">
+            <div class="title-all text-center">
+                <h1>Related Products</h1>
+            </div>
+            <div class="featured-products-box owl-carousel owl-theme">
+                <div class="item" th:each="product : ${products}">
+                    <form th:action="@{/add-to-cart}" method="post">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <img th:src="'data:image/jpeg;base64,' + ${product.image}" class="img-fluid"
+                                     alt="Image">
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a th:href="@{/product-detail/{id}(id = ${product.id})}"
+                                               data-toggle="tooltip"
+                                               data-placement="right"
+                                               title="View"><i class="fas fa-eye"></i></a></li>
+                                    </ul>
+                                    <input type="hidden" th:value="${product.id}" name="id" class="form-control">
+                                    <input type="submit" class="btn hvr-hover" value="Add to cart">
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                <h4 th:text="${product.name}"></h4>
+                                <h5 th:text="'$' + ${product.costPrice}"></h5>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<!-- End Cart -->
+
+<!-- Start Feed  -->
+<div th:replace="~{fragments::instagram-box}">
+</div>
+
+<!-- End Feed  -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}">
+</footer>
+
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>

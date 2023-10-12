@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+
+<head th:replace = "~{fragments::header}">
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul th:replace = "~{fragments::sidebar}">
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace = "~{fragments::top-navbar}">
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <form class="form-horizontal" th:action="@{/update-product/{id}(id = ${productDto.id})}" method="post" th:object = "${productDto}"
+                      enctype="multipart/form-data">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>UPDATE PRODUCT</legend>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+                            <div class="col-md-4">
+                                <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md" required="" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="product_categories">PRODUCT CATEGORY</label>
+                            <div class="col-md-4">
+                                <select id="product_categories" th:field = "*{category}" name="product_categories" class="form-control">
+                                    <option th:value = "null">-SELECT-</option>
+                                    <option th:each = "category : ${categories}"
+                                            th:value = "${category.id}"
+                                            th:text = "${category.name}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+                            <div class="col-md-4">
+                                <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
+                            <div class="col-md-4">
+                                <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md" required="" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="price">PRICE</label>
+                            <div class="col-md-4">
+                                <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <input id="url" name="currentPage" th:field = "*{currentPage}" class="form-control input-md" required="" type="hidden">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <!-- File Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="image">PRODUCT IMAGE</label>
+                                    <div class="col-md-4">
+                                        <img class = "my-product-image" style="height: 40px; width: 40px;" alt="" th:src="'data:image/jpeg;base64,' + *{image}">
+                                        <input id="image" name="imageProduct" class="input-file" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer th:replace="~{fragments::footer}">
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a th:replace="~{fragments::scroll}">
+</a>
+
+
+
+<!-- Bootstrap core JavaScript-->
+<div th:replace="~{fragments::script}"></div>
+
+</body>
+
+</html>

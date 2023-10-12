@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="~{fragments::head}">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}">
+</div>
+<!-- End Main Top -->
+
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments:: all-title-box}">
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Images</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="orderdetail : ${order.orderDetailList}">
+                            <td class="thumbnail-img">
+                                <a href="#">
+                                    <img class="img-fluid"
+                                         th:src="'data:image/jepg;base64,' + ${orderdetail.product.image}" alt=""/>
+                                </a>
+                            </td>
+                            <td class="name-pr">
+                                <p th:text="${orderdetail.product.name}"></p>
+                            </td>
+                            <td class="price-pr">
+                                <p th:text="'$' + ${orderdetail.product.costPrice}"></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row my-5">
+                        <div class="col-lg-8 col-sm-12"></div>
+                        <div class="col-lg-4 col-sm-12">
+                            <div class="order-box">
+                                <h3>Order summary</h3>
+                                <div class="d-flex">
+                                    <p>Total Quantity [(${order.quantity})]</p>
+                                    <h4>Sub Total</h4>
+                                    <div class="ml-auto font-weight-bold" th:text="${order.totalPrice}"> </div>
+                                </div>
+                                <hr class="my-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+
+<!-- Start Feed  -->
+<div th:replace="~{fragments::instagram-box}">
+</div>
+
+<!-- End Feed  -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}"></footer>
+
+
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>
